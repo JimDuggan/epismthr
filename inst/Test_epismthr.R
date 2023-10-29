@@ -1,9 +1,3 @@
-# devtools::check()
-# devtools::load_all()
-# devtools::check_man()
-# devtools::build()
-
-
 library(epismthr)
 library(ggplot2)
 library(dplyr)
