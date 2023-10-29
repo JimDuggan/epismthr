@@ -9,5 +9,10 @@ devtools::install_github("JimDuggan/epismthr")
 
 
 ### Examples
-Here is an example for using the forecasting method
+Here is an examples for using the forecasting method.
+
+
+- [Creating a smoothed forecast from synthetic data](https://github.com/JimDuggan/epismthr/tree/main/data-raw)
+
+
 
