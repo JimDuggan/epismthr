@@ -6,6 +6,7 @@
 
 library(epismthr)
 library(ggplot2)
+library(dplyr)
 
 all_data <- generate_cases()
 

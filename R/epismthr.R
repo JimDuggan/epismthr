@@ -23,7 +23,7 @@ epi_forecast <- function(data, look_ahead=7, level = 95){
   else if (check2)
     stop("Error, column cases should be defined!")
 
-  check3 <- !is.Date(data$Date)
+  check3 <- !lubridate::is.Date(data$Date)
   if(check3)
     stop("Error, column Date should be in Date format!")
 
