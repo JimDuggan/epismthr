@@ -76,5 +76,5 @@ epi_forecast <- function(data, look_ahead=7, level = 95){
        plot_comp=plot2,
        fable_outputs=list(fit=fit,
                           fcast=fcast,
-                          hilo=hilo(fcast)))
+                          hilo=fabletools::hilo(fcast)))
 }
