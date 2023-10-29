@@ -1,0 +1,37 @@
+---
+output: github_document
+title:  Generating a forecast from synthetic data
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+The first step (after installing the package) is to load the library `epismthr`
+
+```{r,echo=T,message=FALSE}
+library(epismthr)
+library(ggplot2)
+```
+
+Use the function `generate_cases()` to generate synthetic data.
+
+```{r,echo=T}
+all_data <- generate_cases()
+all_data
+```
+
+
+Get data from an earlier part of the epi curve.
+```{r}
+test_data <- all_data %>%
+  filter(Date <= as.Date("2023-10-31"))
+```
+
+```{r}
+ggplot(test_data,aes(x=Date,y=Cases))+
+  geom_line()+
+  geom_point()+
+  geom_line(aes(y=Model),colour="red")+
+  scale_x_date(date_breaks = "1 week", minor_breaks = "1 day",date_labels="%b %e")
+```
