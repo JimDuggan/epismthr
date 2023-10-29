@@ -59,10 +59,10 @@ run_sim_seir <- function(N=100000,
              times=simtime,
              func = seir,
              parms=auxs,
-             method="euler") %>%
-    data.frame() %>%
-    dplyr::as_tibble() %>%
-    dplyr::filter(time%% 1 == 0) %>%
+             method="euler") |>
+    data.frame() |>
+    dplyr::as_tibble() |>
+    dplyr::filter(time%% 1 == 0) |>
     dplyr::mutate(DI=TI-lag(TI,1,default = 0))
 }
 
