@@ -7,11 +7,12 @@
 library(epismthr)
 library(ggplot2)
 library(dplyr)
+library(fable)
 
 all_data <- generate_cases()
 
 test_data <- all_data |>
-  filter(Date <= as.Date("2023-10-31"))
+  filter(Date <= as.Date("2023-10-28"))
 
 ggplot(test_data,aes(x=Date,y=Cases))+
   geom_line()+

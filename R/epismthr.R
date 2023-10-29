@@ -32,11 +32,11 @@ epi_forecast <- function(data, look_ahead=7, level = 95){
     stop("Error, column Cases should be numeric!")
 
   # Create tsibble
-  data_ts <- data  %>%
+  data_ts <- data  |>
               tsibble::as_tsibble(index=Date)
 
   # Get the model fit, Holt Winters adaptive algorithm
-  fit <- data_ts %>%
+  fit <- data_ts |>
            fabletools::model(fable::ETS(Cases ~ error("A") +
                                                 trend("Ad") +
                                                 season("N")))

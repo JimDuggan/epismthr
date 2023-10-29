@@ -2,7 +2,7 @@
 % Please edit documentation in R/generate_cases.R
 \name{generate_cases}
 \alias{generate_cases}
-\title{Creates synthetic epi data based on the SEIR model and negative binomial distribution}
+\title{Creates synthetic epi data using SEIR model and negative binomial distribution}
 \usage{
 generate_cases(
   N = 10000,
@@ -45,5 +45,5 @@ generate_cases(
 a tibble with day number, date, model output and cases
 }
 \description{
-\code{generate_cases} Create synthetic case daat to test the forecasting function
+\code{generate_cases} Create synthetic case data to test the forecasting function
 }
