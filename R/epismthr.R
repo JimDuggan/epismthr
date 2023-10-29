@@ -37,9 +37,9 @@ epi_forecast <- function(data, look_ahead=7, level = 95){
 
   # Get the model fit, Holt Winters adaptive algorithm
   fit <- data_ts %>%
-           fabletools::model(ETS(Cases ~ error("A") +
-                                         trend("Ad") +
-                                         season("N")))
+           fabletools::model(fable::ETS(Cases ~ error("A") +
+                                                trend("Ad") +
+                                                season("N")))
 
   # Generate the forecast
   fcast  <- fit |>
