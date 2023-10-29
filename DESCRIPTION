@@ -1,12 +1,16 @@
 Package: epismthr
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Wrapper to fable Exponential Smoothing Model for forecasting cases
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    person(given = "Jim",
+           family = "Duggan",
+           role = c("aut", "cre"),
+           email = "jim.duggan@universityofgalway.ie",
+           comment = c(ORCID = "0000-0002-7507-8617"))
+Maintainer: The package maintainer <jim.duggan@universityofgalway.ie>
+Description: Provides access to fable tools for forecasting
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports: dplyr,

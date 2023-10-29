@@ -6,7 +6,7 @@ library(fable)
 all_data <- generate_cases()
 
 test_data <- all_data |>
-  filter(Date <= as.Date("2023-10-28"))
+  filter(Date <= as.Date("2023-10-31"))
 
 ggplot(test_data,aes(x=Date,y=Cases))+
   geom_line()+
