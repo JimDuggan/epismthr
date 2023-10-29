@@ -53,17 +53,17 @@ epi_forecast <- function(data, look_ahead=7, level = 95){
 
   names(hilo_summ) <- c("Date","Mean","CI")
 
-  hilo_summ <- mutate(hilo_summ,
-                      Level=CI$level,
-                      Lower=CI$lower,
-                      Upper=CI$upper) |>
-    dplyr::select(Date,Mean,Level,Lower,Upper)
+  hilo_summ <- dplyr::mutate(hilo_summ,
+                             Level=CI$level,
+                             Lower=CI$lower,
+                             Upper=CI$upper) |>
+               dplyr::select(Date,Mean,Level,Lower,Upper)
 
 
   # Create useful plots
   plot1 <- fcast %>%
             autoplot(data_ts) +
-            geom_line(aes(y=.fitted),col="#D55E00",data=augment(fit))+
+            geom_line(aes(y=.fitted),col="#D55E00",data=fabletools::augment(fit))+
             scale_x_date(date_breaks = "1 day",minor_breaks = "1 day",date_labels="%b %e")+
             theme(axis.text.x=element_text(angle=90))
 
