@@ -55,11 +55,11 @@ run_sim_seir <- function(N=100000,
                alpha=alpha)
 
   # Note we add on daily cases as a lagged difference of 1/step between cumulative cases
-  res <- ode(y=stocks,
-             times=simtime,
-             func = seir,
-             parms=auxs,
-             method="euler") |>
+  res <- deSolve::ode(y=stocks,
+                      times=simtime,
+                      func = seir,
+                      parms=auxs,
+                      method="euler") |>
     data.frame() |>
     dplyr::as_tibble() |>
     dplyr::filter(time%% 1 == 0) |>
