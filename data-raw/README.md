@@ -59,7 +59,7 @@ returned.
 
 ``` r
 result <- epi_forecast(test_data,
-                       look_ahead = 7)
+                       look_ahead = 5)
 ```
 
 First, we can plot the forecast.
@@ -86,13 +86,22 @@ We can also access the forecast values and the confidence intervals.
 result$hilo
 ```
 
-    ## # A tsibble: 7 x 5 [1D]
+    ## # A tsibble: 5 x 5 [1D]
     ##   Date        Mean Level Lower Upper
     ##   <date>     <dbl> <dbl> <dbl> <dbl>
-    ## 1 2023-10-25  62.3    95  52.7  71.9
-    ## 2 2023-10-26  65.4    95  55.5  75.2
-    ## 3 2023-10-27  68.5    95  58.1  78.9
-    ## 4 2023-10-28  71.5    95  60.1  82.8
-    ## 5 2023-10-29  74.4    95  61.8  87.0
-    ## 6 2023-10-30  77.3    95  63.1  91.5
-    ## 7 2023-10-31  80.1    95  64.1  96.2
+    ## 1 2023-10-25  71.3    95  60.3  82.3
+    ## 2 2023-10-26  76.2    95  65.0  87.4
+    ## 3 2023-10-27  81.0    95  69.3  92.8
+    ## 4 2023-10-28  85.8    95  73.3  98.3
+    ## 5 2023-10-29  90.4    95  76.8 104.
+
+And display the training set accuracy measures.
+
+``` r
+result$ts_accuracy
+```
+
+    ## # A tibble: 1 × 10
+    ##   .model                  .type    ME  RMSE   MAE   MPE  MAPE  MASE RMSSE   ACF1
+    ##   <chr>                   <chr> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>  <dbl>
+    ## 1 "fable::ETS(Cases ~ er… Trai…  1.16  5.35  2.86   NaN   Inf 0.357 0.406 0.0300

@@ -43,7 +43,7 @@ Call the function `epi_forecast()` to generate the forecast, with a look-ahead d
 
 ```{r,echo=TRUE}
 result <- epi_forecast(test_data,
-                       look_ahead = 7)
+                       look_ahead = 5)
 ```
 
 First, we can plot the forecast.
@@ -61,4 +61,11 @@ We can also access the forecast values and the confidence intervals.
 
 ```{r,echo=TRUE}
 result$hilo
+```
+
+
+And display the training set accuracy measures.
+
+```{r,echo=TRUE}
+result$ts_accuracy
 ```
