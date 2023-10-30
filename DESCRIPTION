@@ -16,6 +16,7 @@ LazyData: true
 Imports: dplyr,
          deSolve,
          fable,
+         fabletools,
          tsibble,
          purrr 
 RoxygenNote: 7.2.3

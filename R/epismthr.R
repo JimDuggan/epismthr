@@ -41,6 +41,9 @@ epi_forecast <- function(data, look_ahead=5, level = 95){
                                                 trend("Ad") +
                                                 season("N")))
 
+  ts_accuracy <- fit |>
+    fabletools::accuracy()
+
   # Generate the forecast
   fcast  <- fit |>
              fabletools::forecast(h=look_ahead)
@@ -72,6 +75,7 @@ epi_forecast <- function(data, look_ahead=5, level = 95){
 
   # Return all results
   list(hilo=hilo_summ,
+       ts_accuracy=ts_accuracy,
        plot_fcast=plot1,
        plot_comp=plot2,
        fable_outputs=list(fit=fit,
