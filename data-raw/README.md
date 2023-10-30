@@ -29,9 +29,9 @@ all_data
     ##  5     5 2023-09-05 0.116      0
     ##  6     6 2023-09-06 0.135      0
     ##  7     7 2023-09-07 0.156      0
-    ##  8     8 2023-09-08 0.180      1
+    ##  8     8 2023-09-08 0.180      0
     ##  9     9 2023-09-09 0.207      0
-    ## 10    10 2023-09-10 0.238      1
+    ## 10    10 2023-09-10 0.238      0
     ## # ℹ 91 more rows
 
 Get data from an earlier part of the epi curve in order to run a test.
@@ -89,11 +89,11 @@ result$hilo
     ## # A tsibble: 5 x 5 [1D]
     ##   Date        Mean Level Lower Upper
     ##   <date>     <dbl> <dbl> <dbl> <dbl>
-    ## 1 2023-10-25  71.3    95  60.3  82.3
-    ## 2 2023-10-26  76.2    95  65.0  87.4
-    ## 3 2023-10-27  81.0    95  69.3  92.8
-    ## 4 2023-10-28  85.8    95  73.3  98.3
-    ## 5 2023-10-29  90.4    95  76.8 104.
+    ## 1 2023-10-25  67.2    95  56.3  78.1
+    ## 2 2023-10-26  72.9    95  60.8  84.9
+    ## 3 2023-10-27  78.5    95  64.7  92.2
+    ## 4 2023-10-28  83.9    95  68.2  99.7
+    ## 5 2023-10-29  89.3    95  71.1 107.
 
 And display the training set accuracy measures.
 
@@ -104,4 +104,4 @@ result$ts_accuracy
     ## # A tibble: 1 × 10
     ##   .model                  .type    ME  RMSE   MAE   MPE  MAPE  MASE RMSSE   ACF1
     ##   <chr>                   <chr> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>  <dbl>
-    ## 1 "fable::ETS(Cases ~ er… Trai…  1.16  5.35  2.86   NaN   Inf 0.357 0.406 0.0300
+    ## 1 "fable::ETS(Cases ~ er… Trai…  1.01  5.30  3.04   NaN   Inf 0.441 0.440 -0.113
