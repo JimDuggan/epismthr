@@ -12,7 +12,7 @@ library(tsibble)
 #' @param look_ahead (default is 5), which is the forecast horizon
 #' @param level (default is 95), which is confidence interval for the results
 #'
-#' @return A list containing plots, projections and all generated fable tibbles
+#' @return A list containing plots, projections, training measures and all generated fable tibbles
 #' @export
 epi_forecast <- function(data, look_ahead=5, level = 95){
   check1 <- !any(names(data) %in% c("Date"))
