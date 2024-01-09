@@ -10,11 +10,12 @@ library(tsibble)
 #'
 #' @param data is a tibble that contains two columns: Date (date) and Cases (numeric)
 #' @param look_ahead (default is 5), which is the forecast horizon
+#' @param damped (default is FALSE for Additive Holt-Winters’ method)
 #' @param level (default is 95), which is confidence interval for the results
 #'
 #' @return A list containing plots, projections, training measures and all generated fable tibbles
 #' @export
-epi_forecast <- function(data, look_ahead=5, level = 95){
+epi_forecast <- function(data, look_ahead=5, level = 95, damped=FALSE){
   check1 <- !any(names(data) %in% c("Date"))
   check2 <- !any(names(data) %in% c("Cases"))
 
@@ -35,10 +36,15 @@ epi_forecast <- function(data, look_ahead=5, level = 95){
   data_ts <- data  |>
               tsibble::as_tsibble(index=Date)
 
+  if(damped == FALSE)
+    trend_comp <- "A"
+  else
+    trend_comp <- "Ad"
+
   # Get the model fit, Holt Winters adaptive algorithm
   fit <- data_ts |>
            fabletools::model(fable::ETS(Cases ~ error("A") +
-                                                trend("Ad") +
+                                                trend(trend_comp) +
                                                 season("N")))
 
   ts_accuracy <- fit |>

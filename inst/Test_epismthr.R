@@ -15,7 +15,8 @@ ggplot(test_data,aes(x=Date,y=Cases))+
   scale_x_date(date_breaks = "1 week", minor_breaks = "1 day",date_labels="%b %e")
 
 result <- epi_forecast(test_data,
-                       look_ahead = 7)
+                       look_ahead = 7,
+                       damped = FALSE)
 
 result$plot_fcast
 result$plot_comp
