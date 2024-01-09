@@ -5,6 +5,7 @@ library(tsibble)
 
 #-------------------------------------------------------------------------------------
 #' Creates an epi forecast based on an input tibble.
+#' See https://otexts.com/fpp3/taxonomy.html
 #'
 #' \code{epi_forecast} returns a short term forecast of epi-cases
 #'
