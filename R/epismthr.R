@@ -16,7 +16,11 @@ library(tsibble)
 #'
 #' @return A list containing plots, projections, training measures and all generated fable tibbles
 #' @export
-epi_forecast <- function(data, look_ahead=5, level = 95, damped=FALSE){
+epi_forecast <- function(data,
+                         look_ahead=5,
+                         level = 95,
+                         damped=FALSE,
+                         seasonal=FALSE){
   check1 <- !any(names(data) %in% c("Date"))
   check2 <- !any(names(data) %in% c("Cases"))
 
@@ -42,11 +46,16 @@ epi_forecast <- function(data, look_ahead=5, level = 95, damped=FALSE){
   else
     trend_comp <- "Ad"
 
+  if(seasonal == FALSE)
+    seas_comp <- "N"
+  else
+    seas_comp <- "A"
+
   # Get the model fit, Holt Winters adaptive algorithm
   fit <- data_ts |>
            fabletools::model(fable::ETS(Cases ~ error("A") +
                                                 trend(trend_comp) +
-                                                season("N")))
+                                                season(seas_comp)))
 
   ts_accuracy <- fit |>
     fabletools::accuracy()

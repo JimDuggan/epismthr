@@ -16,7 +16,8 @@ ggplot(test_data,aes(x=Date,y=Cases))+
 
 result <- epi_forecast(test_data,
                        look_ahead = 7,
-                       damped = FALSE)
+                       damped = FALSE,
+                       seasonal = TRUE)
 
 result$plot_fcast
 result$plot_comp
